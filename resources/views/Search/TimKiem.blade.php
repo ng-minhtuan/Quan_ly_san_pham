@@ -72,32 +72,32 @@ PROJECT - Trang chủ
 
         $('#search').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
 
-        var query = $(this).val(); //lấy gía trị ng dùng gõ
-        if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
-        {
-        var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
-        $.ajax({
-        url:'/search',
-        method:"POST", // phương thức gửi dữ liệu.
-        data:{query:query, _token:_token},
-        success:function(data){ //dữ liệu nhận về
-                console.log(data);
-            $('#SearchListContent').fadeIn();
-            $('#SearchListContent').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là SearchListContent
-        }
+            var query = $(this).val(); //lấy gía trị ng dùng gõ
+            if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
+            {
+            var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
+            $.ajax({
+                url:'/search',
+                method:"POST", // phương thức gửi dữ liệu.
+                data:{query:query, _token:_token},
+                success:function(data){ //dữ liệu nhận về
+                        console.log(data);
+                    $('#SearchListContent').fadeIn();
+                    $('#SearchListContent').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là SearchListContent
+                }
+                });
+            }
         });
-        }
-    });
 
-        // $(document).on('click', '#items', function(){
-        // $('#SearchListContent').val($(this).text());
-        // $('#SearchListContent').fadeOut();
-        // });
+        $(document).on('click', 'tr', function(){
+        $('#SearchListContent').val($(this).text());
+        $('#SearchListContent').fadeOut();
+        });
 
-   });
-    $(document).on('click','.redirectToUrl',function(){
-        let getRedirectUrl = $(this).attr('data-redirect-url');
-        window.location.href= getRedirectUrl;
     });
+    // $(document).on('click','.redirectToUrl',function(){
+    //     let getRedirectUrl = $(this).attr('data-redirect-url');
+    //     window.location.href= getRedirectUrl;
+    // });
   </script>
 @endpush
