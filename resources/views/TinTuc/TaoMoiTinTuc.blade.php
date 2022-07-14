@@ -78,7 +78,7 @@ PROJECT - Viết bài mới
 
                                 <div class="form-group">
                                     <label style="font-weight: 700; color:#000; margin: 1rem 0 0.5rem;" for="tieude">Nội dung bài viết</label>
-                                    <textarea class="form-control" id="summary-ckeditor" name="noidung" style="height: 15rem;"></textarea>
+                                    <textarea class="ckeditor form-control" id="tintuc-ckeditor" name="noidung" style="height: 15rem;"></textarea>
                                     @error('noidung')
                                         <span class="text-danger" role="alert">
                                             <p>{{ $message }}</p>
@@ -114,7 +114,14 @@ PROJECT - Viết bài mới
 
 @endsection
 @push('javascript')
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{ url('src/ckeditor.js') }}"></script>
+<script>
+    $(document).ready(function()
+    {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 @endpush
 @push('css')
 
