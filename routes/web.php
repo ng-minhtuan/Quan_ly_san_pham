@@ -250,3 +250,6 @@ Route::prefix('san-pham')->middleware('auth')->group(function(){
  * ---------------------Tìm kiếm-----------------------------------
 *
 */
+use App\Http\Controllers\Timkiem\SearchController;
+Route::get('search', [SearchController::class, 'getSearch'])->name('search.get');
+Route::post('search', [SearchController::class,'postSearch'])->name('search');

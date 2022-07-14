@@ -23,12 +23,19 @@ PROJECT - Trang chủ
                     <!-- Actions -->
                     <div class="col-sm-6 col-12 text-sm-end">
                         <div class="mx-n1">
+                            <a href="{{route('search.get')}}" class="btn d-inline-flex btn-sm btn-secondary mx-1">
+                                <span class=" pe-2">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </span>
+                                <span>Tìm kiếm</span>
+                            </a>
                             <a href="{{route('tintuc.viewtaomoi')}}" class="btn d-inline-flex btn-sm btn-primary mx-1">
                                 <span class=" pe-2">
                                     <i class="fa-solid fa-file-circle-plus"></i>
                                 </span>
                                 <span>Tạo bài viết mới</span>
                             </a>
+
                             @unless (Auth::check())
                             <a href="{{Route('getLogin')}}" class="btn d-inline-flex btn-sm btn-primary mx-1">
                                 <span class=" pe-2">
@@ -127,7 +134,7 @@ PROJECT - Trang chủ
                                     <td>{{$tinTuc->tintuc_taomoi}}</td>
 
                                     <td class="text-end">
-                                        <a href="{{route('tintuc.doc',['id' => $tinTuc->tintuc_id])}}" class="btn btn-sm btn-secondary">
+                                        <a href="{{route('tintuc.doc',['id' => $tinTuc->tintuc_id])}}" id="items" class="btn btn-sm btn-secondary">
                                             <i class="fa-solid fa-eye"></i>
                                             <span>Xem</span>
                                         </a>
