@@ -89,10 +89,10 @@ PROJECT - Trang chủ
             }
         });
 
-        $(document).on('click', 'tr', function(){
-        $('#SearchListContent').val($(this).text());
-        $('#SearchListContent').fadeOut();
-        });
+        // $(document).on('click', 'tr', function(){
+        // $('#SearchListContent').val($(this).text());
+        // $('#SearchListContent').fadeOut();
+        // });
 
     });
     // $(document).on('click','.redirectToUrl',function(){
