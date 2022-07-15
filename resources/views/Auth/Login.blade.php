@@ -60,6 +60,7 @@ PROJECT-Đăng nhập
                                     <button class="btn btn-md btn-primary btn-block" type="submit" style="margin-top: 1rem;">Đăng nhập</button>
 
                                     <a class="btn btn-md btn-secondery btn-block " href="{{ route('getRegister') }}" style="margin-top: 1rem;border: 1px solid rgb(25, 200, 171) !important;">Tạo tài khoản </a>
+                                    <a class="btn btn-md btn-success btn-block " href="{{ route('view.checkcode') }}" style="margin-top: 1rem;">Kích hoạt tài khoản </a>
                                 </form>
                             </div>
                         </div>

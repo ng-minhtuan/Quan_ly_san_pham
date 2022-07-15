@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-PROJECT - Trang chủ
+PROJECT - Tìm kiếm
 @endsection
 
 @section('body')
@@ -89,15 +89,12 @@ PROJECT - Trang chủ
             }
         });
 
-        // $(document).on('click', 'tr', function(){
-        // $('#SearchListContent').val($(this).text());
-        // $('#SearchListContent').fadeOut();
-        // });
-
+    $(document).on('click','#redirectToUrl',function(){
+        $('#SearchListContent').val($(this).text());
+        $('#SearchListContent').fadeOut();
+        let getRedirectUrl = $(this).attr('data-redirect-url');
+        window.location.href= getRedirectUrl;
     });
-    // $(document).on('click','.redirectToUrl',function(){
-    //     let getRedirectUrl = $(this).attr('data-redirect-url');
-    //     window.location.href= getRedirectUrl;
-    // });
-  </script>
+});
+</script>
 @endpush

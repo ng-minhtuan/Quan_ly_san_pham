@@ -24,7 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('aut
  */
 use App\Http\Controllers\CustomAuth\LoginController;
 Route::get('dang-nhap',[LoginController::class,'getLogin'])->name('getLogin');
-Route::post('dang-nhap',[LoginController::class,'postLogin'])->middleware('active')->name('postLogin');
+Route::post('dang-nhap',[LoginController::class,'postLogin'])->name('postLogin');
 
 
 /**
@@ -70,34 +70,34 @@ Route::prefix('verify-email')->group(function(){
 
 use App\Http\Controllers\User\UserProfileController;
 
-Route::get('thong-tin-ca-nhan',[UserProfileController::class,'getProfile'])->middleware('auth','active')->name('user.profile');
+Route::get('thong-tin-ca-nhan',[UserProfileController::class,'getProfile'])->middleware('auth')->name('user.profile');
 
 
 /**
  * Sửa thông tin cá nhân
  */
 
-Route::get('edit-profile',[UserProfileController::class,'getEdit'])->middleware('auth','active')->name('user.getEdit');
+Route::get('edit-profile',[UserProfileController::class,'getEdit'])->middleware('auth')->name('user.getEdit');
 Route::post('update-profile',[UserProfileController::class,'updateProfile'])->middleware('auth')->name('user.update');
 
 /**
  * Đổi ảnh đại diện
  */
-Route::get('update-image',[UserProfileController::class,'viewUpdateImage'])->middleware('auth','active')->name('user.viewupdateimg');
+Route::get('update-image',[UserProfileController::class,'viewUpdateImage'])->middleware('auth')->name('user.viewupdateimg');
 Route::post('update-image',[UserProfileController::class,'updateImage'])->middleware('auth')->name('user.updateImage');
 
 /**
  * Xoá tài khoản cá nhân
  */
 
-Route::post('delete-profile',[UserProfileController::class,'deleteUser'])->middleware('auth','active')->name('user.delete');
+Route::post('delete-profile',[UserProfileController::class,'deleteUser'])->middleware('auth')->name('user.delete');
 
 /**
  * -----------------------------Danh sách người dùng---------------------------------
  */
 use App\Http\Controllers\ListUsers\ListUsersController;
 
-Route::prefix('users')->middleware('auth','active')->group(function(){
+Route::prefix('users')->middleware('auth')->group(function(){
     /**
      * Truy cập trang danh sách User
      */
@@ -251,5 +251,5 @@ Route::prefix('san-pham')->middleware('auth')->group(function(){
 *
 */
 use App\Http\Controllers\Timkiem\SearchController;
-Route::get('search', [SearchController::class, 'getSearch'])->name('search.get');
+Route::get('search', [SearchController::class, 'getSearch'])->middleware('auth')->name('search.get');
 Route::post('search', [SearchController::class,'postSearch'])->name('search');

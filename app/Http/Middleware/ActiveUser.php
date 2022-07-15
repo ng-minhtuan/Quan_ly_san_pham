@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class ActiveUser
 {
     /**
@@ -16,10 +16,13 @@ class ActiveUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->confirmed == 0){
-            dd($request->user()->confirmed);
-            return redirect()->route('view.checkcode')->with('error','Tài khoản của bạn chưa được kích hoạt!');
+        if($request->user() && $request->user()->confirmed == '1'){
+
+            return $next($request);
+
         }
-        return $next($request);
+            return redirect()->back()->with('error','Tài khoản của bạn chưa được kích hoạt!');
+
     }
+
 }

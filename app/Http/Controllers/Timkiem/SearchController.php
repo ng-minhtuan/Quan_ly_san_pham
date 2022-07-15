@@ -72,7 +72,7 @@ class SearchController extends Controller
                     $output .=
                     '
 
-                        <tr>
+                        <tr id="redirectToUrl" data-redirect-url = "'.route('list.getUser',['id'=>$user->user_id]).'">
                         <td>'.$index.'</td>
                         <td>'.$user->fullname.'</td>
                         <td>'.$user->username.'</td>
@@ -111,7 +111,7 @@ class SearchController extends Controller
                     $index = $key +1;
                     $output .=
                     '
-                        <tr >
+                        <tr id="redirectToUrl" data-redirect-url = "'.route('tintuc.doc',['id'=>$tintuc->tintuc_id]).'">
                         <td>'.$index.'</td>
                         <td>'.substr($tintuc->tintuc_tieude,0,30).'</td>
                         <td>'.substr($tintuc->tintuc_tomtat,0,35).'</td>
@@ -148,7 +148,7 @@ class SearchController extends Controller
                     $index = $key +1;
                     $output .=
                     '
-                        <tr >
+                        <tr id="redirectToUrl" data-redirect-url = "'.route('sp.xem',['id'=>$sp->sp_id]).'">
                         <td>'.$index.'</td>
                         <td>'.$sp->sp_ten.'</td>
                         <td>'.substr($sp->sp_thongtin,0,35).'</td>
@@ -184,7 +184,7 @@ class SearchController extends Controller
                     $index = $key +1;
                     $output .=
                     '
-                        <tr >
+                        <tr id="redirectToUrl" data-redirect-url = "'.route('nsx.xem',['id'=>$Nsx->nsx_id]).'">
                         <td>'.$index.'</td>
                         <td>'.$Nsx->nsx_ten.'</td>
                         <td>'.substr($Nsx->nsx_mota,0,50).'</td>
@@ -198,7 +198,7 @@ class SearchController extends Controller
             {
                 $output = '
                 <div class="text-left m-lg-6" style="display: flex; justify-content: flex-start; align-content: center; align-items: center;">
-                <p>Không tìm thấy giá trị nào khớp!</p>
+                    <p>Không tìm thấy giá trị nào khớp!</p>
                 </div>';
             };
            echo $output;
